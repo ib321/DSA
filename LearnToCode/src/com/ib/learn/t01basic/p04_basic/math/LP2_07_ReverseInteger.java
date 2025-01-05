@@ -3,15 +3,26 @@ package com.ib.learn.t01basic.p04_basic.math;
 public class LP2_07_ReverseInteger {
 
 	public static void main(String[] args) {
-		System.out.println(new SolutionLP02().reverse(12345));
+		System.out.println(new SolutionLP02().reverse0(12345));
 		System.out.println(new SolutionLP02().reverse(0));
 		System.out.println(new SolutionLP02().reverse(-78526));
 		System.out.println(new SolutionLP02().reverse(2147483346));
 	}
-
 }
 
 class SolutionLP02 {
+
+	// Basic Logic Only
+	public int reverse0(int num) {
+		int rev = 0;
+		while (num != 0) {
+			int rem = num % 10;
+			rev = rev * 10 + rem;
+			num = num / 10;
+		}
+		return rev;
+	}
+
 	public int reverse(int x) {
 		int revX = 0;
 		while (x != 0) {

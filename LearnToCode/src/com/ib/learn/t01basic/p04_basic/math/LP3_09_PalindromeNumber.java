@@ -17,7 +17,7 @@ class SolutionLP03 {
 		// if negative:: -121 reverse id 121- which is not Equal
 		if (x < 0)
 			return false;
-		// using long instead of int.
+		// using long instead of int to check overflow later.
 		long newnum = x;
 		long revnum = 0;
 		// reverse algo same as int without overflow check
@@ -27,8 +27,8 @@ class SolutionLP03 {
 			newnum = newnum / 10;
 		}
 		int revint = (int) revnum;
-		// overflow check here if revnum == revint condition is to check if
-		// int counterpart of long is same if yes then no overflow happened
+		// 1st condition to check overflow (revnum == revint)
+		// this checks if int counterpart of long is same if yes then no overflow happened
 		// 2nd condition to check for Palindrome
 		if (revnum == revint && x == revint) {
 			return true;

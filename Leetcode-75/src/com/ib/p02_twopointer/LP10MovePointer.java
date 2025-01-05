@@ -21,7 +21,8 @@ class Solution10 {
 	 *	initialize another array with same length;
 	 *	loop input array use whenever non zero element put into new array into consecutive order
 	 *	use a index pointer to maintain the order
-	 *	now loop again this time just replace all the element with zero that are non zero.
+	 *  new array elements were already zero you replaced all starting element with non zero
+	 *  at last there will be already zero just make sure length is same
 	 */
 	public void moveZeroes3(int[] nums) {
 		int[] arr2 = new int[nums.length];
@@ -31,11 +32,6 @@ class Solution10 {
 				arr2[index++] = nums[i];
 			}
 		}
-		for (int i = 0; i < arr2.length; i++) {
-			if (!(arr2[i] != 0))
-				arr2[i] = 0;
-		}
-
 		System.out.println(Arrays.toString(arr2));
 	}
 
@@ -58,6 +54,31 @@ class Solution10 {
 			nums[i] = 0;
 		}
 		// System.out.println(Arrays.toString(nums));
+	}
+
+	/**
+	 * Two pointer Approach
+	 * stat both pointer at 0
+	 * use right to go to next non zero element
+	 * use left to point to last zero position just after a non zero element
+	 * swap with left pointer when right pointer finds a non zero element
+	 * @param nums
+	 */
+	public void moveZeroes0(int[] nums) {
+		int left = 0;  // Initialize the left pointer
+		int right = 0; // Initialize the right pointer
+		// Move non-zero elements to the front
+		while (right < nums.length) {
+			if (nums[right] != 0) {
+				int temp = nums[left];
+				nums[left] = nums[right];
+				nums[right] = temp;
+				left++;  // Move left pointer only when a swap is made
+			}
+			right++;  // Always move the right pointer
+		}
+
+		System.out.println(Arrays.toString(nums));
 	}
 
 	/*-

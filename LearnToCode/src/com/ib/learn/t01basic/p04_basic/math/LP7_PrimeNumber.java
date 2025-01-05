@@ -28,32 +28,30 @@ class SolutionLP07 {
 			return false;
 		}
 		// starts from 2 so as soon as it gets divided by any number we return false
-		// upto sqrt of n cause checking for greater then sqrt doesn't divide number other then itself
+		// upto sqrt of n cause checking for greater than sqrt doesn't divide number other than itself
 		for (int i = 2; i <= Math.sqrt(n); i++) {
 			if (n % i == 0) {
-				// inside this mean number has been divided by any number other then 1 & itself
+				// number has been divided by any number other than 1 & itself
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	// Not efficient method
 	static boolean checkPrime2(int n) {
 		// primes are positive number
 		if (n <= 1) {
 			return false;
 		}
-		
+
 		int count = 0;
 		for (int i = 1; i <= n; i++) {
 			if (n % i == 0)
 				count++;
 		}
 
-		if (count == 2)
-			return true;
-		else
-			return false;
+		return count == 2;
 	}
+
 }
