@@ -1,23 +1,24 @@
 package com.ib.learn.t01basic.p04_basic.math;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class LP6_PrintAllDivisor {
+public class LP6_Factorisation {
 
 	public static void main(String[] args) {
 		int n = 36;
-		int[] divs = SolutionLP06.printDivisors(n);
+		int[] divs = PrintAllDivisor.printDivisors(n);
 		for (int i = 0; i < divs[n]; i++) {
 			System.out.println(divs[i]);
 		}
-		ArrayList<Integer> divarr = SolutionLP06.printDivisors2(40);
+		ArrayList<Integer> divarr = PrintAllDivisor.printDivisors2(40);
 		for (Integer integer : divarr) {
 			System.out.println(integer);
 		}
 	}
 }
 
-class SolutionLP06 {
+class PrintAllDivisor {
 	/**
 	 * print all divisor of a number Input:N = 36 Output:[1, 2, 3, 4, 6, 9, 12, 18,
 	 * 36]
@@ -60,4 +61,25 @@ class SolutionLP06 {
         divisors.sort(Integer::compareTo);
         return divisors;
     }
+}
+
+
+class PrimeFactorization {
+	// Function to perform prime factorization
+	public static List<Integer> primeFactors(int number) {
+		List<Integer> factors = new ArrayList<>();
+		for (int i = 2; i <= number; i++) {
+			while (number % i == 0) {
+				factors.add(i);
+				number /= i;
+			}
+		}
+		return factors;
+	}
+
+	public static void main(String[] args) {
+		int number = 60; // Example: prime factorization of 60
+		List<Integer> factors = primeFactors(number);
+		System.out.println("Prime factors of 60: " + factors);
+	}
 }

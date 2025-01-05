@@ -13,9 +13,8 @@ class SolutionLP01 {
     int countDigit(int n) {
         if (n == 0)
             return 1;
-        // Convert negative no to positive without using Math.abs()
-        // our while logic check if no is less than zero which won't work on negative no
-        // so first converted negative into positive cause we just need no of digits.
+        // Convert negative num to positive without using Math.abs()
+        // our while logic based on num>0 it doesn't affect the no of digits
         if (n < 0) {
             n = -n;
         }
