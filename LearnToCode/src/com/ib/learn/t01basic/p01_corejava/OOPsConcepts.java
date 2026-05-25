@@ -80,5 +80,58 @@ public class OOPsConcepts {
         // Displaying information using final method
         obj1.displayInfo();
         obj2.displayInfo();
+
+        //------------------------------------------
+
+    }
+}
+
+
+class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    void area() {
+        System.out.println("Calculating area of circle");
+    }
+}
+
+class Square extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a square");
+    }
+}
+
+class Polymorphism {
+    public static void main(String[] args) {
+
+        Shape[] shapes = { new Shape(), new Circle(), new Square() };
+        for (Shape s : shapes) {
+            s.draw();  // Which draw() runs depends on the actual object
+        }
+
+        Shape s1 = new Shape();
+        Shape s2 = new Circle();
+        Circle c1 = new Circle();
+
+        s1.draw();   // ✅ "Drawing a shape"
+        s2.draw();   // ✅ "Drawing a circle" (runtime decides)
+        c1.draw();   // ✅ "Drawing a circle"
+
+        // c1 can call area() because reference type is Circle
+        c1.area();   // ✅ "Calculating area of circle"
+
+        // s2 is a Shape reference, even though object is Circle
+        // Compiler only sees Shape type, which has no area() method
+        // s2.area(); ❌ Compile-time ERROR
     }
 }

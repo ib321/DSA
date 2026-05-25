@@ -39,9 +39,12 @@ public class BasicJavaCodes {
     public static void inputDemo() {
         // Input in Java Using (Scanner)
         Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String inputString = scanner.nextLine();
-        System.out.println("You entered: " + inputString);
+        System.out.println("Enter Any Int: ");
+        int intInput = scanner.nextInt();
+        System.out.println("You entered: " + inputString + " And "+ intInput);
 
         // Input in Java using BufferedReader
         try {
