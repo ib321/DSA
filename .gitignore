@@ -26,3 +26,5 @@ replay_pid*
 # ignore intelliJ files
 **/.idea/
 **/out
+**/bin
+**/.settings
