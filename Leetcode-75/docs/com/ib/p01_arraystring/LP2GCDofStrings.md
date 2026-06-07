@@ -33,12 +33,31 @@ public class LP2GCDofStrings {
 
 	public static void main(String[] args) {
 
-		System.out.println(new Solution2().gcdOfStrings("ABABAB", "ABAB"));
+		System.out.println(new Solution2().gcdOfStrings3("ABABAB", "ABAB"));
+		System.out.println(new Solution2().gcdOfStrings3("NEET", "PEET"));
+		System.out.println(new Solution2().gcdOfStrings3("ABDCABDCABDC", "ABDCABDC"));
 
 	}
 }
 
 class Solution2 {
+
+	/**
+	 * Syntax wise simple.
+	 */
+	public String gcdOfStrings3(String str1, String str2) {
+		if ((str1 + str2).equals(str2 + str1)) {
+			int min = str1.length() < str2.length() ? str1.length() : str2.length();
+			int hcf = 0;
+			for (int i = 1; i <= min; i++) {
+				if (str1.length() % i == 0 && str2.length() % i == 0) {
+					hcf = i;
+				}
+			}
+			return str1.substring(0, hcf);
+		} else
+			return "";
+	}
 	 
 	/**
 	 * Solution In Problem: 

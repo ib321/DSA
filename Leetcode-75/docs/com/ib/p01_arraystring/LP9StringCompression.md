@@ -42,16 +42,18 @@ import java.util.Arrays;
 public class LP9StringCompression {
 
 	public static void main(String[] args) {
-		new Solution9().compress(new char[] { 'a', 'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b' });
-		new Solution9().compress(new char[] { 'a', 'b', 'b', 'c', 'c', 'c' });
+		new Solution9().compress2(new char[] { 'a', 'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b' });
+		new Solution9().compress2(new char[] { 'a', 'b', 'b', 'c', 'c', 'c' });
 
 	}
 
 }
 
 class Solution9 {
-	
-	// from leetcode solutions
+
+	/**
+	 * Intuitive approach.
+	 */
 	public int compress2(char[] chars) {
 		int ans = 0; // keep track of current position in compressed array
 
@@ -82,7 +84,9 @@ class Solution9 {
 		return ans;
 	}
 
-	// Raw logic
+	/**
+	 * Raw Approach.
+	 */
 	public int compress(char[] chars) {
 		int count = 0;
 		int index = 0;
@@ -121,6 +125,9 @@ class Solution9 {
 	}
 
 
+	/**
+	 * Raw Approach simplified.
+	 */
 	public int compress3(char[] chars) {
 		if (chars.length == 0)
 			return 0;

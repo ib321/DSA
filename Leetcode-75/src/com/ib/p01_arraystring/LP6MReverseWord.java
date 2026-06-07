@@ -14,20 +14,19 @@ class Solution6 {
 	 * 	we get splited words arrays it will have all the words combined with some blank words
 	 * 	reverse the order of words by using loop in reverse:: only append if word is not empty
 	 * 	at last return the string wait you forgot the trailing space (trim that)
-	 * 
+	 *
 	 * @param s : sentence string where words are to be reversed
 	 * @return String of reversed word
 	 */
 	public String reverseWords(String s) {
-		String[] splitarr = s.split(" ");
 		StringBuilder result = new StringBuilder();
-		for (int i = splitarr.length - 1; i >= 0; i--) {
-			String str = splitarr[i];
+		String[] strArr = s.split(" ");
+		for (int i = strArr.length - 1; i >= 0; i--) {
+			String str = strArr[i];
 			if (!str.isEmpty())
 				result.append(str).append(" ");
 		}
-		String string = result.toString();
-		System.out.println(string.trim());
-		return string.trim();
+		System.out.println(result.toString().trim());
+		return result.toString().trim();
 	}
 }

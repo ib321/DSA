@@ -27,12 +27,16 @@ You have a long flowerbed in which some of the plots are planted, and some are n
 
 package com.ib.p01_arraystring;
 
+import java.util.Arrays;
+
 public class LP4CanPlaceFlower {
 
 	public static void main(String[] args) {
 		int[] n = { 0, 0, 0, 0, 0 };
+		int[] n2 = {1,0,0,0,1};
 
 		System.out.println(new Solution4().canPlaceFlowers(n, 2));
+		System.out.println(new Solution4().canPlaceFlowers(n2, 1));
 
 	}
 
@@ -66,6 +70,7 @@ class Solution4 {
 	 * Input: flowerbed = [1,0,0,0,1], n = 2 -- Output: false
 	 */
 	public boolean canPlaceFlowers(int[] flowerbed, int n) {
+		System.out.println(Arrays.toString(flowerbed));
 		int maxflowercanbeplated = 0;
 		for (int i = 0; i < flowerbed.length; i++) {
 			if (flowerbed[i] == 0) {
@@ -77,7 +82,7 @@ class Solution4 {
 				}
 			}
 		}
-
+		System.out.println(Arrays.toString(flowerbed) + " " + maxflowercanbeplated);
 		return n <= maxflowercanbeplated;
 	}
 }
