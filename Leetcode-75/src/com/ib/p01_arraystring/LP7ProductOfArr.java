@@ -1,5 +1,7 @@
 package com.ib.p01_arraystring;
 
+import java.util.Arrays;
+
 public class LP7ProductOfArr {
 
 	public static void main(String[] args) {
@@ -75,23 +77,24 @@ class Solution7 {
 		int[] answer = new int[nums.length];
 		int prefix = 1;
 		int suffix = 1;
-
+		//{ 10, 2, 3, 4, 5 }
 		for (int i = 0; i < nums.length; i++) {
 			prefixes[i] = prefix;
-			// System.out.println("pre" + prefix);
 			prefix = prefix * nums[i];
-			// System.out.println("after pre" + prefix);
 		}
+		//{ 1, 10, 20, 60, 240 }
 
+		//{ 10, 2, 3, 4, 5 }
 		for (int i = nums.length - 1; i >= 0; i--) {
 			suffixes[i] = suffix;
-			// System.out.println("pre" + suffix);
 			suffix = suffix * nums[i];
-			// System.out.println("after " + suffix);
 		}
+		//{ 120, 60, 20, 5, 1 }
+
 		for (int i = 0; i < nums.length; i++) {
 			answer[i] = prefixes[i] * suffixes[i];
 		}
+		System.out.println(Arrays.toString(answer));
 		return answer;
 	}
 
@@ -108,16 +111,18 @@ class Solution7 {
 	 * 
 	 */
 	public int[] productExceptSelf4(int[] nums) {
-		int n = nums.length, mult = 1;
-		int[] ans = new int[n];
-		for (int i = 0; i < n; i++) {
-			ans[i] = mult;
-			mult = mult * nums[i];
+		int len = nums.length;
+		int[] ans = new int[len];
+
+		int pre = 1;
+		for (int i = 0; i < len; i++) {
+			ans[i] = pre;
+			pre = pre * nums[i];
 		}
-		mult = 1;
-		for (int j = n - 1; j >= 0; j--) {
-			ans[j] = ans[j] * mult;
-			mult = mult * nums[j];
+		int post = 1;
+		for (int j = len - 1; j >= 0; j--) {
+			ans[j] = post * ans[j];
+			post = post * nums[j];
 		}
 		return ans;
 	}

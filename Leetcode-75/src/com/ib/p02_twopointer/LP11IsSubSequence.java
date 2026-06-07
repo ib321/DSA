@@ -3,21 +3,36 @@ package com.ib.p02_twopointer;
 public class LP11IsSubSequence {
 
 	public static void main(String[] args) {
-		System.out.println(new Solution11().isSubsequence("abc", "ahbdc"));
+		System.out.println(new Solution11().isSubsequence00("abgc", "ahbgdcfr"));
 	}
 }
 
 class Solution11 {
+
+	/**
+	 * New Adaptation.
+	 */
+	public boolean isSubsequence00(String s, String t) {
+		if(s.isEmpty()) return true;
+		int j = 0;
+		for (int i = 0; i < t.length(); i++) {
+			if (t.charAt(i) == s.charAt(j))
+				j++;
+			if(j == s.length()) return true;
+		}
+		return false;
+	}
+
 	/*-
 	 * Aim is to find if the s is substr of t i.e s can be created by deleting any or non char of t
-	 * 
+	 *
 	 * Easy and cool idea:
 	 * 	loop for bigger length string
 	 * 	start a pointer with 0
 	 *  compare if any char matched the small str if it does increase pointer...
 	 *  check if pointer length equals substr length if yes return true.
 	 *  abcde -> ace is substr but not aec
-	 * 
+	 *
 	 */
 	public boolean isSubsequence(String s, String t) {
 		int subLength = s.length();

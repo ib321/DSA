@@ -10,6 +10,21 @@ public class LP1MergeStringAlternatevely {
 }
 
 class Solution1 {
+
+	/**
+	 * Simple java approach
+	 */
+	public String mergeAlternately3(String word1, String word2) {
+		StringBuilder str= new StringBuilder();
+		int len = word1.length() > word2.length() ? word1.length() : word2.length();
+		for(int i=0;i<len;i++){
+			if (i<word1.length())
+				str.append(word1.charAt(i));
+			if(i<word2.length())
+				str.append(word2.charAt(i));
+		}
+		return str.toString();
+	}
 	
 	/**
 	 * Approach: start two index i,j with 0;

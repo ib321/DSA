@@ -39,6 +39,29 @@ public class LP5RevVowelInString {
 class Solution5 {
 
 	/**
+	 * Java for each approach.
+	 */
+	public String reverseVowels3(String s) {
+		StringBuilder vowels = new StringBuilder();
+		StringBuilder out = new StringBuilder();
+
+		for(char c : s.toCharArray()){
+			if(isVowel(c)){
+				vowels.append(c);
+			}
+		}
+		int index = vowels.length()-1;
+		for(char c: s.toCharArray()){
+			if(isVowel(c)){
+				out.append(vowels.charAt(index--));
+				continue;
+			}
+			out.append(c);
+		}
+		return out.toString();
+	}
+
+	/**
 	 * Approach:
 	 * 	first extract all vowels in an char array.
 	 * 	loop StringToChar in reverse and check if vowel add into vowels list
@@ -48,23 +71,23 @@ class Solution5 {
 	 * @return new string with it's only vowel reversed.
 	 */
 	public String reverseVowels(String s) {
-		char[] stringToChar = s.toCharArray();
+		char[] chars = s.toCharArray();
 		List<Character> revVowels = new ArrayList<Character>();
 
 		for (int i = s.length() - 1; i >= 0; i--) {
-			char c = stringToChar[i];
+			char c = chars[i];
 			if (isVowel(c)) {
 				revVowels.add(c);
 			}
 		}
 		int index = 0;
 		for (int i = 0; i < s.length(); i++) {
-			char c = stringToChar[i];
+			char c = chars[i];
 			if (isVowel(c)) {
-				stringToChar[i] = revVowels.get(index++);
+				chars[i] = revVowels.get(index++);
 			}
 		}
-		return String.valueOf(stringToChar);
+		return String.valueOf(chars);
 	}
 
 	/**
@@ -74,8 +97,7 @@ class Solution5 {
 	 * @return
 	 */
 	private boolean isVowel(char c) {
-		String vowels = "aeiouAEIOU";
-		return vowels.indexOf(c) != -1;
+		return "aeiouAEIOU".indexOf(c) != -1;
 	}
 
 
@@ -116,6 +138,7 @@ class Solution5 {
         return new String(chars);
     }
 	
+	@SuppressWarnings("unused")
 	private boolean isVowel2(char[] stringToChar, int i) {
 		boolean isSmallVowels = stringToChar[i] == 'a' || stringToChar[i] == 'e' || stringToChar[i] == 'i'
 				|| stringToChar[i] == 'o' || stringToChar[i] == 'u';
